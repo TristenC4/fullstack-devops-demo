@@ -7,7 +7,7 @@ function App() {
 
   const loadTasks = async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/tasks')
+      const res = await fetch('/api/tasks')
       const data = await res.json()
       setTasks(data)
     } catch (err) {
@@ -16,7 +16,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/health')
+    fetch('/api/health')
       .then((res) => res.json())
       .then((data) => setStatus(data.status))
       .catch(() => setStatus('error'))
@@ -29,7 +29,7 @@ function App() {
     if (!text.trim()) return
 
     try {
-      const res = await fetch('http://localhost:3001/api/tasks', {
+      const res = await fetch('/api/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text }),
