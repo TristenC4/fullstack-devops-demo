@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/TristenC4/fullstack-devops-demo.git'
-            }
-        }
-
         stage('Build Backend') {
             steps {
                 dir('backend') {
